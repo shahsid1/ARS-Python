@@ -1,0 +1,165 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './animations.css';
+
+@layer base {
+  :root {
+    --background: 220 13% 95%; /* Soft blue-gray */
+    --foreground: 210 7% 45%; /* Slate gray */
+
+    --card: 0 0% 98%; /* Very light gray */
+    --card-foreground: 210 7% 45%; /* Slate gray */
+
+    --popover: 0 0% 98%; /* Very light gray */
+    --popover-foreground: 210 7% 45%; /* Slate gray */
+
+    --primary: 205 26% 47%; /* Dusty blue */
+    --primary-foreground: 0 0% 100%; /* White */
+
+    --secondary: 216 45% 21%; /* Deep navy */
+    --secondary-foreground: 0 0% 100%; /* White */
+
+    --muted: 220 14% 88%; /* Soft blue-gray lighter */
+    --muted-foreground: 210 7% 45%; /* Slate gray */
+
+    --accent: 216 45% 21%; /* Deep navy */
+    --accent-foreground: 0 0% 100%; /* White */
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 13% 85%; /* Light blue-gray border */
+    --input: 220 13% 85%; /* Light blue-gray input */
+    --ring: 205 26% 47%; /* Dusty blue */
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 220 13% 95%; /* Soft blue-gray */
+    --sidebar-foreground: 210 7% 45%; /* Slate gray */
+    --sidebar-primary: 205 26% 47%; /* Dusty blue */
+    --sidebar-primary-foreground: 0 0% 100%; /* White */
+    --sidebar-accent: 216 45% 21%; /* Deep navy */
+    --sidebar-accent-foreground: 0 0% 100%; /* White */
+    --sidebar-border: 220 13% 85%; /* Light blue-gray border */
+    --sidebar-ring: 205 26% 47%; /* Dusty blue */
+  }
+
+  .dark {
+    --background: 216 45% 10%; /* Darker deep navy */
+    --foreground: 0 0% 95%; /* Lighter text */
+
+    --card: 216 45% 15%; /* Dark navy */
+    --card-foreground: 0 0% 95%; /* Lighter text */
+
+    --popover: 216 45% 15%; /* Dark navy */
+    --popover-foreground: 0 0% 95%; /* Lighter text */
+
+    --primary: 205 26% 40%; /* Slightly darker dusty blue */
+    --primary-foreground: 0 0% 95%; /* Lighter text */
+
+    --secondary: 205 26% 47%; /* Dusty blue */
+    --secondary-foreground: 0 0% 95%; /* Lighter text */
+
+    --muted: 216 45% 20%; /* Darker navy */
+    --muted-foreground: 210 7% 70%; /* Lighter slate gray */
+
+    --accent: 205 26% 47%; /* Dusty blue */
+    --accent-foreground: 0 0% 95%; /* Lighter text */
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 95%;
+
+    --border: 216 45% 30%; /* Medium navy */
+    --input: 216 45% 30%; /* Medium navy */
+    --ring: 205 26% 40%; /* Slightly darker dusty blue */
+
+    --sidebar-background: 216 45% 15%; /* Dark navy */
+    --sidebar-foreground: 0 0% 95%; /* Lighter text */
+    --sidebar-primary: 205 26% 40%; /* Slightly darker dusty blue */
+    --sidebar-primary-foreground: 0 0% 95%; /* Lighter text */
+    --sidebar-accent: 205 26% 47%; /* Dusty blue */
+    --sidebar-accent-foreground: 0 0% 95%; /* Lighter text */
+    --sidebar-border: 216 45% 30%; /* Medium navy */
+    --sidebar-ring: 205 26% 40%; /* Slightly darker dusty blue */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Button animations */
+  button {
+    @apply transition-all duration-300;
+  }
+  
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Card animations */
+  .card {
+    @apply transition-all duration-300;
+  }
+}
+
+.header-shadow {
+  box-shadow: 0 4px 12px rgba(89, 127, 151, 0.15);
+}
+
+/* Enhance form elements */
+input, select, textarea {
+  @apply transition-all duration-200;
+}
+
+/* Animated link underlines */
+.animated-link {
+  position: relative;
+}
+
+.animated-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.animated-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Enhanced promotion cards */
+.promotion-card {
+  transition: all 0.3s ease;
+}
+
+.promotion-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Flight card animations */
+.flight-card {
+  transition: all 0.3s ease;
+}
+
+.flight-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
